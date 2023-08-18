@@ -1,6 +1,7 @@
 {
   "cli": {
-    "version": ">= 3.18.3"
+    "version": ">= 3.18.3",
+    "appVersionSource": "remote"
   },
   "build": {
     "preview": {
@@ -10,14 +11,21 @@
         "autoIncrement": "versionCode"
       },
       "ios": {
-        "simulator": true
-      }
+        "simulator": true,
+        "autoIncrement": "buildNumber"
+      },
+      "channel": "preview"
     },
     "production": {
       "autoIncrement": true,
       "android": {
         "autoIncrement": "versionCode"
-      }
+      },
+      "ios": {
+        "image": "latest",
+        "autoIncrement": "buildNumber"
+      },
+      "channel": "production"
     }
   },
   "submit": {
@@ -26,6 +34,10 @@
         "track": "internal",
         "serviceAccountKeyPath": "./google-services.json",
         "releaseStatus": "draft"
+      },
+      "ios": {
+        "appleId": "",
+        "ascAppId": ""
       }
     }
   }
